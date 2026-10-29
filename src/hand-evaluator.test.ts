@@ -61,6 +61,18 @@ describe("evaluateHand", () => {
 
     expect(evaluateHand(hand)).toBe(45);
   });
+
+  it("renvoie 40 points pour une suite", () => {
+    const hand: Card[] = [
+      { value: 5, suit: "trefle" },
+      { value: 6, suit: "carreau" },
+      { value: 7, suit: "coeur" },
+      { value: 8, suit: "pique" },
+      { value: 9, suit: "trefle" },
+    ];
+
+    expect(evaluateHand(hand)).toBe(40);
+  });
 });
 
 describe("sumHandsPoints", () => {
