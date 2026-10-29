@@ -25,4 +25,16 @@ describe("evaluateHand", () => {
 
     expect(evaluateHand(hand)).toBe(30);
   });
+
+  it("renvoie 60 points pour un carré", () => {
+    const hand: Card[] = [
+      { value: 7, suit: "trefle" },
+      { value: 7, suit: "carreau" },
+      { value: 7, suit: "pique" },
+      { value: 7, suit: "coeur" },
+      { value: 2, suit: "trefle" },
+    ];
+
+    expect(evaluateHand(hand)).toBe(60);
+  });
 });
