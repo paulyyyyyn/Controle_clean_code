@@ -5,6 +5,10 @@ const FLUSH_POINTS = 45;
 const FULL_HOUSE_POINTS = 50;
 const FOUR_OF_A_KIND_POINTS = 60;
 
+export function sumHandsPoints(hands: Card[][]): number {
+  return hands.reduce((total, hand) => total + evaluateHand(hand), 0);
+}
+
 export function evaluateHand(hand: Card[]): number {
   if (hasSameValueCount(hand, 4)) {
     return FOUR_OF_A_KIND_POINTS;

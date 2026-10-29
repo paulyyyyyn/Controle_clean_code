@@ -1,5 +1,5 @@
 import { Card } from "./card";
-import { evaluateHand } from "./hand-evaluator";
+import { evaluateHand, sumHandsPoints } from "./hand-evaluator";
 
 describe("evaluateHand", () => {
   it("renvoie la valeur de la carte la plus haute quand la main n'a aucune combinaison", () => {
@@ -60,5 +60,33 @@ describe("evaluateHand", () => {
     ];
 
     expect(evaluateHand(hand)).toBe(45);
+  });
+});
+
+describe("sumHandsPoints", () => {
+  it("additionne les points de toutes les mains", () => {
+    const fullHouse: Card[] = [
+      { value: 2, suit: "coeur" },
+      { value: 2, suit: "pique" },
+      { value: 2, suit: "carreau" },
+      { value: 9, suit: "trefle" },
+      { value: 9, suit: "pique" },
+    ];
+    const flush: Card[] = [
+      { value: 2, suit: "coeur" },
+      { value: 7, suit: "coeur" },
+      { value: 9, suit: "coeur" },
+      { value: 11, suit: "coeur" },
+      { value: 13, suit: "coeur" },
+    ];
+    const highCard: Card[] = [
+      { value: 3, suit: "trefle" },
+      { value: 8, suit: "carreau" },
+      { value: 10, suit: "coeur" },
+      { value: 12, suit: "pique" },
+      { value: 13, suit: "trefle" },
+    ];
+
+    expect(sumHandsPoints([fullHouse, flush, highCard])).toBe(50 + 45 + 13);
   });
 });
