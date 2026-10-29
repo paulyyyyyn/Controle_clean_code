@@ -49,4 +49,16 @@ describe("evaluateHand", () => {
 
     expect(evaluateHand(hand)).toBe(50);
   });
+
+  it("renvoie 45 points pour une couleur", () => {
+    const hand: Card[] = [
+      { value: 2, suit: "coeur" },
+      { value: 7, suit: "coeur" },
+      { value: 9, suit: "coeur" },
+      { value: 11, suit: "coeur" },
+      { value: 13, suit: "coeur" },
+    ];
+
+    expect(evaluateHand(hand)).toBe(45);
+  });
 });
