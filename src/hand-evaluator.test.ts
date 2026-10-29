@@ -2,7 +2,7 @@ import { Card } from "./card";
 import { evaluateHand } from "./hand-evaluator";
 
 describe("evaluateHand", () => {
-  it("returns the highest card value when the hand has no combination", () => {
+  it("renvoie la valeur de la carte la plus haute quand la main n'a aucune combinaison", () => {
     const hand: Card[] = [
       { value: 3, suit: "trefle" },
       { value: 8, suit: "carreau" },
@@ -12,5 +12,17 @@ describe("evaluateHand", () => {
     ];
 
     expect(evaluateHand(hand)).toBe(13);
+  });
+
+  it("renvoie 30 points pour un brelan", () => {
+    const hand: Card[] = [
+      { value: 4, suit: "trefle" },
+      { value: 4, suit: "carreau" },
+      { value: 4, suit: "pique" },
+      { value: 9, suit: "coeur" },
+      { value: 13, suit: "trefle" },
+    ];
+
+    expect(evaluateHand(hand)).toBe(30);
   });
 });
