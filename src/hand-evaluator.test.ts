@@ -37,4 +37,16 @@ describe("evaluateHand", () => {
 
     expect(evaluateHand(hand)).toBe(60);
   });
+
+  it("renvoie 50 points pour un full", () => {
+    const hand: Card[] = [
+      { value: 2, suit: "coeur" },
+      { value: 2, suit: "pique" },
+      { value: 2, suit: "carreau" },
+      { value: 9, suit: "trefle" },
+      { value: 9, suit: "pique" },
+    ];
+
+    expect(evaluateHand(hand)).toBe(50);
+  });
 });
